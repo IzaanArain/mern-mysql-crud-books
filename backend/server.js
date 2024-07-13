@@ -12,6 +12,8 @@ app.get("/",(req,res) => {
     res.send("<h1>Server is running</h1>");
 });
 
+app.use("/books",require("./routes/book.routes"));
+
 server.listen(PORT,() => {
     console.log(`Server is running on port: ${PORT}`);
 })
