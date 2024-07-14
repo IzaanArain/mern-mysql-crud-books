@@ -16,6 +16,7 @@ const Books = () => {
         setloading(false);
       } catch (err) {
         setError(err.message);
+        console.log(err.message)
         setloading(false);
       }
     })();
