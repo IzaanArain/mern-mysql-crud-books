@@ -8,6 +8,7 @@ const Books = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log("mounting");
     (async () => {
       try {
         setloading(true);
@@ -20,6 +21,9 @@ const Books = () => {
         setloading(false);
       }
     })();
+    return () => {
+    console.log("Unmounting");
+    }
   }, []);
 
   return (
@@ -29,7 +33,7 @@ const Books = () => {
         <div className="books">
           {books.map((book, i) => {
             return (
-              <div key={i} className="book">
+              <div key={book.id} className="book">
                 {book.cover && (
                   <img
                     src={`${import.meta.env.VITE_API_URL}/${book.cover}`}
