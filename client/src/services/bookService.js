@@ -17,9 +17,7 @@ export const fetchAllBooks = async () => {
 
 export const addBook = async (data) => {
   try {
-    const res = await axios.post("/books",data,{headers:{
-      "Content-Type":"applicaton/json"
-    }});
+    const res = await axios.post("/books",data);
     const data = res.data;
     return data;
   } catch (err) {
